@@ -1,0 +1,88 @@
+body {
+    background-color: #eee;
+    margin: 0;
+    font-family: helvetica;
+}
+
+a:link, a:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.topbar {
+    background-color: #f44336;
+    color: white;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: 40px;
+}
+
+    .topbar div {
+        display: flex;
+        margin-right: 30px;
+        padding-left: 5px;
+        padding-right: 5px;
+        color: white;
+        font-size: 20px;
+        height: 100%;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+        .topbar div.menu:hover {
+            background-color: #e43326;
+        }
+
+        .topbar div.menu a {
+            display: flex;
+            height: 100%;
+            align-content: center;
+            flex-wrap: wrap;
+        }
+
+        .topbar div a:link, a:visited {
+            color: white;
+        }
+
+        .topbar div a:hover {
+            background-color: #e43326;
+        }
+
+    .topbar .title {
+        font-size: 35px;
+        padding-right: 80px;
+    }
+
+.container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+    .container .section {
+        margin: 0;
+        background-color: white;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border: 2px solid #888
+    }
+
+    .container .statut {
+    }
+
+    .container .controle {
+    }
+
+h1 {
+}
+
+h2 {
+    color: #f44336 !important
+}

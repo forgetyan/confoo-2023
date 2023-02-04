@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Démo serveur Web</title>
+    <link rel="icon" href="favicon.ico" />
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="topbar">
+        <div class="title">
+            Démo Web
+        </div>
+        <div class="menu">
+            <a href="javascript:displaySection('statut')">Statut</a>
+        </div>
+        <div class="menu">
+            <a href="javascript:displaySection('controls')">Contrôles</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section statut" id="statut">
+            <h1>Statut du ESP-32</h1>
+            IP: 192.168.0.133
+        </div>
+        <div class="section controls" id="controls" style="display: none">
+            <h1>Contrôles</h1>
+            <h2>Led</h2>
+            <div>
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
+                <label class="form-check-label" for="flexSwitchCheckChecked">LED</label>
+            </div>
+            <h2>Température</h2>
+            24.32°C
+        </div>
+    </div>
+</body>
+</html>
