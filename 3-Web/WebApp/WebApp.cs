@@ -28,7 +28,7 @@ namespace WebApp
 
         public void Run()
         {
-            if (_useLed) _processList.Add(_serviceProvider.GetService(typeof(IBlinker)));
+            if (_useLed) _processList.Add(_serviceProvider.GetService(typeof(IBlinkerService)));
 
             if (_useThermometer) _processList.Add(_serviceProvider.GetService(typeof(IThermometerService)));
 

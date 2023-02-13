@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Net.NetworkInformation;
-using System.Reflection;
+﻿using System.Net.NetworkInformation;
 using System.Text;
 using nanoFramework.Json;
 using nanoFramework.WebServer;
@@ -12,10 +9,10 @@ namespace WebApp.Controller
 {
     public class ApiController
     {
-        private readonly IBlinker _blinker;
+        private readonly IBlinkerService _blinker;
         private readonly IThermometerService _thermometerService;
 
-        public ApiController(IBlinker blinker, IThermometerService thermometerService)
+        public ApiController(IBlinkerService blinker, IThermometerService thermometerService)
         {
             _blinker = blinker;
             _thermometerService = thermometerService;
@@ -26,9 +23,9 @@ namespace WebApp.Controller
         public void GetControllerStatus(WebServerEventArgs e)
         {
             var networkInterface = NetworkInterface.GetAllNetworkInterfaces()[0];
-            var controllerStatus = new ControllerStatus()
+            var controllerStatus = new ControllerStatus
             {
-                Ip = networkInterface.IPv4Address,
+                Ip = networkInterface.IPv4Address
             };
             var result = JsonConvert.SerializeObject(controllerStatus);
             WebServer.OutPutStream(e.Context.Response, result);
@@ -40,7 +37,6 @@ namespace WebApp.Controller
         {
             var result = JsonConvert.SerializeObject(_blinker.GetLedStatusModel());
             e.Context.Response.ContentType = "text/json";
-            e.Context.Response.ContentLength64 = result.Length;
             WebServer.OutPutStream(e.Context.Response, result);
         }
 
@@ -48,10 +44,9 @@ namespace WebApp.Controller
         [Method("GET")]
         public void GetTemperature(WebServerEventArgs e)
         {
-            Temperature temp = _thermometerService.GetTemperatureModel();
+            var temp = _thermometerService.GetTemperatureModel();
             var result = JsonConvert.SerializeObject(temp);
             e.Context.Response.ContentType = "text/json";
-            e.Context.Response.ContentLength64 = result.Length;
             WebServer.OutPutStream(e.Context.Response, result);
         }
 

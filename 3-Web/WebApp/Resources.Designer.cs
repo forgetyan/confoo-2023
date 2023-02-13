@@ -42,7 +42,6 @@ namespace WebApp
         internal enum StringResources : short
         {
             script = -22589,
-            Test = -7434,
             style = -5605,
             index = -2501,
         }

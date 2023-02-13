@@ -23,7 +23,7 @@
     <Compile Include="Controller\AuthController.cs" />
     <Compile Include="Controller\WebPageController.cs" />
     <Compile Include="Extensions\ServiceCollectionExtensions.cs" />
-    <Compile Include="Interfaces\IBlinker.cs" />
+    <Compile Include="Interfaces\IBlinkerService.cs" />
     <Compile Include="Interfaces\IGpioService.cs" />
     <Compile Include="Interfaces\IProcess.cs" />
     <Compile Include="Interfaces\ISwitchable.cs" />
@@ -42,7 +42,7 @@
     </Compile>
     <Compile Include="Services\BaseProcess.cs" />
     <Compile Include="Services\GpioService.cs" />
-    <Compile Include="Services\LedBlinker.cs" />
+    <Compile Include="Services\LedBlinkerService.cs" />
     <Compile Include="Services\ThermometerService.cs" />
     <Compile Include="Services\ThreadService.cs" />
     <Compile Include="WebApp.cs" />

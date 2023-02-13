@@ -1,5 +1,4 @@
 ﻿using nanoFramework.WebServer;
-using System.Net;
 
 namespace WebApp.Controller
 {

@@ -1,20 +1,18 @@
 ﻿using System.Device.Gpio;
-using System.Reflection;
 using WebApp.Interfaces;
 using WebApp.Model;
 
 namespace WebApp.Services
 {
-    public class LedBlinker : BaseProcess, IBlinker
+    public class LedBlinkerService : BaseProcess, IBlinkerService
     {
         private readonly IGpioService _gpioService;
 
-        public LedBlinker(IThreadService threadService, IGpioService gpioService) : base(threadService)
+        public LedBlinkerService(IThreadService threadService, IGpioService gpioService) : base(threadService)
         {
             _gpioService = gpioService;
         }
 
-        public int Speed { get; set; } = 50;
         public LedStatus GetLedStatusModel()
         {
             return new LedStatus
@@ -23,6 +21,8 @@ namespace WebApp.Services
                 Speed = Speed
             };
         }
+
+        public int Speed { get; set; } = 50;
 
         public override void Init()
         {

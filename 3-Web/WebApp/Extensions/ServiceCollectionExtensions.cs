@@ -8,7 +8,7 @@ namespace WebApp.Extensions
     {
         public static ServiceCollection AddLedManagerDI(this ServiceCollection services)
         {
-            services.AddSingleton(typeof(IBlinker), typeof(LedBlinker));
+            services.AddSingleton(typeof(IBlinkerService), typeof(LedBlinkerService));
             services.AddSingleton(typeof(IGpioService), typeof(GpioService));
             return services;
         }

@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Device.Gpio;
-using System.Diagnostics;
-using System.Threading;
 using Iot.Device.Ds18b20;
 using nanoFramework.Device.OneWire;
 using nanoFramework.Hardware.Esp32;
+using UnitsNet;
 using WebApp.Interfaces;
 
 namespace WebApp.Services
@@ -13,11 +11,11 @@ namespace WebApp.Services
     public class GpioService : IGpioService
     {
         private static GpioController _gpio;
-        private static Hashtable pins = new Hashtable();
-
-        private bool _tempSensorInit = false;
+        private static readonly Hashtable pins = new();
         private static OneWireHost _oneWireHost;
-        Ds18b20 _tempSensor;
+        private Ds18b20 _tempSensor;
+
+        private bool _tempSensorInit;
 
         public GpioService()
         {
@@ -40,13 +38,6 @@ namespace WebApp.Services
             }
         }
 
-        public bool TryReadTemperature(out UnitsNet.Temperature temperature)
-        {
-            var result = _tempSensor.TryReadTemperature(out var currentTemperature);
-            temperature = currentTemperature;
-            return result;
-        }
-
         public void OpenPin(int pinNumber, PinMode mode)
         {
             if (pins.Contains(pinNumber))
@@ -58,6 +49,13 @@ namespace WebApp.Services
             pins.Add(pinNumber, pin);
         }
 
+        public bool TryReadTemperature(out Temperature temperature)
+        {
+            var result = _tempSensor.TryReadTemperature(out var currentTemperature);
+            temperature = currentTemperature;
+            return result;
+        }
+
         public void Write(int pinNumber, PinValue value)
         {
             if (pins.Contains(pinNumber))
@@ -66,6 +64,5 @@ namespace WebApp.Services
                 pin?.Write(value);
             }
         }
-
     }
 }

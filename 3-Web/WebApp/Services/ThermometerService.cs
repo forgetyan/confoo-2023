@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Threading;
 using WebApp.Interfaces;
 using WebApp.Model;
@@ -9,11 +8,13 @@ namespace WebApp.Services
     public class ThermometerService : BaseProcess, IThermometerService
     {
         private readonly IGpioService _gpioService;
-        public double Temperature { get; set; }
+
         public ThermometerService(IThreadService threadService, IGpioService gpioService) : base(threadService)
         {
             _gpioService = gpioService;
         }
+
+        public double Temperature { get; set; }
 
         public override void Init()
         {
@@ -31,6 +32,7 @@ namespace WebApp.Services
                 Temperature = currentTemperature.DegreesCelsius;
                 Debug.WriteLine($"Temperature: {Temperature.ToString("F")}\u00B0C");
             }
+
             Thread.Sleep(1000);
         }
 
