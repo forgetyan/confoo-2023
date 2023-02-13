@@ -11,12 +11,28 @@ a:link, a:visited {
     font-weight: bold;
 }
 
-.topbar {
+.title {
     background-color: #f44336;
+    color: white;
+    border-bottom: #111 1px solid;
+    margin: 0;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: 40px;
+    font-size: 35px;
+    padding-right: 80px;
+}
+
+.topbar {
+    background-color: #e43326;
     color: white;
     margin: 0;
     margin-bottom: 10px;
-    padding: 5px;
+    padding: 0px;
     padding-left: 15px;
     padding-right: 15px;
     display: flex;
@@ -37,7 +53,7 @@ a:link, a:visited {
         flex-wrap: wrap;
     }
         .topbar div.menu:hover {
-            background-color: #e43326;
+            background-color: #d42316;
         }
 
         .topbar div.menu a {
@@ -52,13 +68,8 @@ a:link, a:visited {
         }
 
         .topbar div a:hover {
-            background-color: #e43326;
+            background-color: #d42316;
         }
-
-    .topbar .title {
-        font-size: 35px;
-        padding-right: 80px;
-    }
 
 .container {
     padding-left: 20px;
@@ -86,3 +97,51 @@ h1 {
 h2 {
     color: #f44336 !important
 }
+
+.alert {
+    padding: 20px;
+    color: white;
+    margin-bottom: 15px;
+    display: block;
+}
+
+    .alert.high {
+        background-color: #f44336; /* Red */
+    }
+
+    .alert.low {
+        background-color: #3643f4; /* Blue */
+    }
+
+.temperature-label {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.arrow {
+    margin-right: 10px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    position: relative;
+}
+
+    .arrow.right {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+
+    .arrow.up {
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+        border-color: #f44336; /* Red */
+    }
+
+    .arrow.down {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        border-color: #3643f4; /* Blue */
+        top: -3px;
+    }

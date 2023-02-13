@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using System;
+﻿using System;
 using Iot.Device.Ds18b20;
 
 namespace CapteurTemp
@@ -15,7 +14,7 @@ namespace CapteurTemp
 
         public void ReadTemp()
         {
-            _tempSensor.SensorValueChanged += (currentTemperature) =>
+            _tempSensor.SensorValueChanged += currentTemperature =>
             {
                 Console.WriteLine($"Temperature: {currentTemperature.DegreesCelsius.ToString("F")}\u00B0C");
             };

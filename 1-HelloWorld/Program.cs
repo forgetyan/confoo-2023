@@ -10,8 +10,7 @@ namespace HelloWorld
         {
             Debug.WriteLine("Bienvenue dans le nanoFramework!");
             var gpio = new GpioController();
-            GpioPin led = gpio.OpenPin(5, PinMode.Output);
-
+            GpioPin led = gpio.OpenPin(32, PinMode.Output);
             while (true)
             {
                 led.Toggle();

@@ -4,7 +4,7 @@ namespace WebApp.Controller
 {
     public class WebPageController
     {
-        [Route("default.html"), Route("index.html"), Route("/")]
+        [Route("default.html"), Route("index2.html"), Route("/")]
         public void Index(WebServerEventArgs e)
         {
             e.Context.Response.ContentType = "text/html";

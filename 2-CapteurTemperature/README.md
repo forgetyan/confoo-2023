@@ -4,8 +4,15 @@
 
 [Retour](../README.md)
 
-Le premier exemple sert à démontrer un exemple très simple de code, c'est à dire un projet de type "Hello World". Puisque les microcontrôleurs n'ont pas d'écran, il est impossible d'inscrire "Hello World" à l'écran. Les projets simple de ce type vont alors souvent être un projet qui permet de faire clignoter une lumière LED. C'est ce que nous allons faire ici.
+Pour ce deuxième projet, nous allons intégrer un thermomètre DS18B20.
+
+<https://docs.nanoframework.net/devicesdetails/README.html>
 
 ## Circuit
 
-Le circuit requis pour ce projet consiste à mettre un lumière LED sur le port #5 du ESP32, tout en mettant une résistance de 220 Ohm en série, avant de de terminer le circuit sur le port "ground" du contrôleur.
+Le circuit est détaillé ici sur la documentation du nanoFramework
+<https://docs.nanoframework.net/devicesdetails/Ds18b20/README.html>
+
+![Circuit DS18B20](./circuit.png)
+
+Ce circuit ci-haut est ajouté au circuit précédent du projet #1, ce qui nous permettra d'afficher la température et de faire clignoter la lumière dans des threads différents

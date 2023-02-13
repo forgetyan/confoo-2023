@@ -9,10 +9,10 @@
     <script src="script.js" type="text/javascript"></script>
 </head>
 <body>
+    <div class="title">
+        Démo Web
+    </div>
     <div class="topbar">
-        <div class="title">
-            Démo Web
-        </div>
         <div class="menu">
             <a href="javascript:displaySection('statut')">Statut</a>
         </div>
@@ -20,21 +20,37 @@
             <a href="javascript:displaySection('controls')">Contrôles</a>
         </div>
     </div>
-    <div class="container">
-        <div class="section statut" id="statut">
-            <h1>Statut du ESP-32</h1>
-            IP: 192.168.0.133
-        </div>
-        <div class="section controls" id="controls" style="display: none">
-            <h1>Contrôles</h1>
-            <h2>Led</h2>
+<div class="container">
+    <div class="section statut" id="statut">
+        <h1>Statut du ESP-32</h1>
+        IP: <span id="controllerIp"></span>
+    </div>
+    <div class="section controls" id="controls" style="display: none">
+        <h1>Contrôles</h1>
+        <h2>Led</h2>
+        <div>
+            <input class="form-check-input" type="checkbox" id="ledSwitch" checked="" onchange="javascript: setLedActive(this.checked)">
+            <label class="form-check-label" for="ledSwitch">Actif</label>
             <div>
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
-                <label class="form-check-label" for="flexSwitchCheckChecked">LED</label>
+                <h3>Vitesse</h3>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="10" class="slider" id="ledSpeed" onchange="javascript: setLedSpeed(this.value)">
+                </div>
             </div>
-            <h2>Température</h2>
-            24.32°C
+        </div>
+        <h2>Température</h2>
+        <div id="alert" class="alert high">
+            <strong>Danger!</strong> <span id="alertMessage">
+                La température est trop élevée
+            </span>
+        </div>
+        <input class="form-check-input" type="checkbox" id="tempSwitch" checked="" onchange="javascript: setTempActive(this.checked)">
+        <label class="form-check-label" for="tempSwitch">Actif</label>
+        <div class="temperature-label">
+            <i id="tempArrow" class="arrow up"></i>
+            <span id="temperature">21.00</span>°C
         </div>
     </div>
+</div>
 </body>
 </html>

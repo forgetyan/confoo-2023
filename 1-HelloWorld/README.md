@@ -8,4 +8,4 @@ Le premier exemple sert à démontrer un exemple très simple de code, c'est à 
 
 ## Circuit
 
-Le circuit requis pour ce projet consiste à mettre un lumière LED sur le port #5 du ESP32, tout en mettant une résistance de 220 Ohm en série, avant de de terminer le circuit sur le port "ground" du contrôleur.
+Le circuit requis pour ce projet consiste à mettre un lumière LED sur le port #32 du ESP32, tout en mettant une résistance de 220 Ohm en série, avant de de terminer le circuit sur le port "ground" du contrôleur.
