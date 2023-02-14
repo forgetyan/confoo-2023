@@ -8,6 +8,7 @@ namespace WebApp.Controller
         public void Index(WebServerEventArgs e)
         {
             e.Context.Response.ContentType = "text/html";
+            //WebServer.OutPutStream(e.Context.Response, "<html><body>"
             WebServer.OutPutStream(e.Context.Response, Resources.GetString(Resources.StringResources.index));
         }
 

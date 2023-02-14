@@ -1,6 +1,7 @@
 ﻿using Iot.Device.Ds18b20;
 using System.Threading;
 using System;
+using System.Diagnostics;
 
 namespace CapteurTemp
 {
@@ -19,11 +20,11 @@ namespace CapteurTemp
             {
                 if (!_tempSensor.TryReadTemperature(out var currentTemperature))
                 {
-                    Console.WriteLine("Can't read!");
+                    Debug.WriteLine("Can't read!");
                 }
                 else
                 {
-                    Console.WriteLine($"Temperature: {currentTemperature.DegreesCelsius.ToString("F")}\u00B0C");
+                    Debug.WriteLine($"Temperature: {currentTemperature.DegreesCelsius.ToString("F")}\u00B0C");
                 }
                 Thread.Sleep(2000);
             }

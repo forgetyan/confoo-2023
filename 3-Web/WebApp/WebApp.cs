@@ -4,9 +4,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Threading;
-using Iot.Device.DhcpServer;
 using nanoFramework.Networking;
-using nanoFramework.Runtime.Native;
 using nanoFramework.WebServer;
 using WebApp.Controller;
 using WebApp.Interfaces;
@@ -28,9 +26,15 @@ namespace WebApp
 
         public void Run()
         {
-            if (_useLed) _processList.Add(_serviceProvider.GetService(typeof(IBlinkerService)));
+            if (_useLed)
+            {
+                _processList.Add(_serviceProvider.GetService(typeof(IBlinkerService)));
+            }
 
-            if (_useThermometer) _processList.Add(_serviceProvider.GetService(typeof(IThermometerService)));
+            if (_useThermometer)
+            {
+                _processList.Add(_serviceProvider.GetService(typeof(IThermometerService)));
+            }
 
             foreach (IProcess process in _processList)
             {
@@ -49,7 +53,10 @@ namespace WebApp
             {
                 Debug.WriteLine($"Impossible d'obtenir une adresse IP, Status du Wifi: {WifiNetworkHelper.Status}.");
                 if (WifiNetworkHelper.HelperException != null)
+                {
                     Debug.WriteLine($"Exception: {WifiNetworkHelper.HelperException}");
+                }
+
                 WifiAPManager.StartWifiAP();
             }
             else
@@ -88,7 +95,10 @@ namespace WebApp
             try
             {
                 var url = e.Context.Request.RawUrl;
-                if (url == "/test") WebServer.OutPutStream(e.Context.Response, "Test de r&eacute;ponse");
+                if (url == "/test")
+                {
+                    WebServer.OutPutStream(e.Context.Response, "Test de r&eacute;ponse");
+                }
 
                 WebServer.OutputHttpCode(e.Context.Response, HttpStatusCode.NotFound);
             }

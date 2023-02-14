@@ -28,6 +28,7 @@ namespace WebApp.Controller
                 Ip = networkInterface.IPv4Address
             };
             var result = JsonConvert.SerializeObject(controllerStatus);
+            e.Context.Response.ContentType = "text/json";
             WebServer.OutPutStream(e.Context.Response, result);
         }
 

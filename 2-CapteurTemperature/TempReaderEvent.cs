@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Iot.Device.Ds18b20;
 
 namespace CapteurTemp
@@ -16,7 +17,7 @@ namespace CapteurTemp
         {
             _tempSensor.SensorValueChanged += currentTemperature =>
             {
-                Console.WriteLine($"Temperature: {currentTemperature.DegreesCelsius.ToString("F")}\u00B0C");
+                Debug.WriteLine($"Temperature: {currentTemperature.DegreesCelsius.ToString("F")}\u00B0C");
             };
             _tempSensor.BeginTrackChanges(TimeSpan.FromMilliseconds(500));
         }

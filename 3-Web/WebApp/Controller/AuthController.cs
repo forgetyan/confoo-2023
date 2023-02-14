@@ -8,7 +8,7 @@ namespace WebApp.Controller
         [Route("authbasic")]
         public void Basic(WebServerEventArgs e)
         {
-            WebServer.OutPutStream(e.Context.Response, "Vous avez accès à cette page sécurisée");
+            WebServer.OutPutStream(e.Context.Response, "Vous avez acc&egrave;s &agrave; cette page s&eacute;curis&eacute;e");
         }
     }
 }
